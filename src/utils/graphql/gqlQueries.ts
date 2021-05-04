@@ -1,10 +1,10 @@
 import { gql } from "@apollo/client";
 
-export const queries = {
-  getAllSongs: gql`
+export const gqlQueries = {
+  GET_ALL_SONGS: gql`
     query {
       getSongs {
-        songName
+        title
         degreeOfDifficulty
         madeFamousBy
         style
