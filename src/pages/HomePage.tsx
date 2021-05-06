@@ -1,22 +1,22 @@
-import { useEffect } from "react";
-import axios from "axios";
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
 
-import { ENDPOINT } from "../config/ENDPOINT";
-import { PageProps } from "./PageProps";
+import "./HomePage.scss";
 
-export default function HomePage(props: PageProps) {
-  useEffect(() => {
-    // Update the document title using the browser API
-    axios
-      .get(ENDPOINT.BASE_URL)
-      .then((res) => console.log(res))
-      .catch((err) => {
-        props.setErrorMessage(
-          "Error connecting to backend server. Data may be absent or not up to date."
-        );
-        console.error(err);
-      });
-  });
+import { setErrorMessageType } from "../models/stateTypes";
 
-  return <div>you are home</div>;
+export default function HomePage(props: {
+  setErrorMessage: setErrorMessageType;
+}) {
+  return (
+    <div className="HomePage">
+      <h1>Modern Masters</h1>
+      <h2>Suggested Songs for Contemporary Voice Study</h2>
+      <Link to="/catalog">
+        <Button size="large" variant="contained" color="secondary">
+          View Catalog
+        </Button>
+      </Link>
+    </div>
+  );
 }
