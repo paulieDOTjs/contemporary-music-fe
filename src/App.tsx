@@ -31,20 +31,20 @@ function App() {
   }, [data, error, setErrorMessage]);
 
   return (
-    <>
-      <Router>
+    <Router>
+      <div className="wrapper">
         <Switch>
           <Route exact path="/catalog">
             <CatalogPage setErrorMessage={setErrorMessage} songs={catalog} />
           </Route>
           <Route exact path="/">
-            <HomePage setErrorMessage={setErrorMessage} />
+            <HomePage />
           </Route>
         </Switch>
         {errorMessage ? <ErrorMessage message={errorMessage} /> : ""}
-        <NavBar></NavBar>
-      </Router>
-    </>
+      </div>
+      <NavBar></NavBar>
+    </Router>
   );
 }
 

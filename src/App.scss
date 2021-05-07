@@ -20,5 +20,8 @@ code {
   width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: 1fr 56px;
+  grid-template-rows: calc(100vh - 62px) 56px;
+  .wrapper {
+    overflow-y: scroll;
+  }
 }

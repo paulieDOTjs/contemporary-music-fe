@@ -8,7 +8,7 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 export default function NavBar() {
   return (
-    <div>
+    <>
       <BottomNavigation showLabels={true}>
         <Link to="/">
           <BottomNavigationAction label="Home" icon={<HomeIcon />} />
@@ -23,6 +23,6 @@ export default function NavBar() {
           />
         </Link>
       </BottomNavigation>
-    </div>
+    </>
   );
 }

@@ -1,40 +1,28 @@
-import { makeStyles, Theme, createStyles } from "@material-ui/core/styles";
+import { makeStyles, createStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
-import { red } from "@material-ui/core/colors";
 import PlayArrow from "@material-ui/icons/PlayArrow";
 
 import { SongType } from "../../models/SongType";
 import { ATTRIBUTE } from "../../models/ATTRIBUTE";
+import dummy from "../../media/dummy.jpg";
 import AttributeList from "./AttributeList";
 
 import Tags from "./tags";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       maxWidth: 345,
+      margin: 24,
     },
     media: {
       height: 0,
       paddingTop: "56.25%", // 16:9
-    },
-    expand: {
-      transform: "rotate(0deg)",
-      marginLeft: "auto",
-      transition: theme.transitions.create("transform", {
-        duration: theme.transitions.duration.shortest,
-      }),
-    },
-    expandOpen: {
-      transform: "rotate(180deg)",
-    },
-    avatar: {
-      backgroundColor: red[500],
     },
   })
 );
@@ -50,7 +38,7 @@ export default function SongCard(props: { song: SongType | undefined }) {
       />
       <CardMedia
         className={classes.media}
-        image="https://via.placeholder.com/350x150"
+        image={dummy}
         title={props.song?.title ?? ""}
       />
       <CardContent>
