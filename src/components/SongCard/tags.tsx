@@ -5,7 +5,7 @@ import DoneIcon from "@material-ui/icons/Done";
 import "./tags.scss";
 
 import { ATTRIBUTE } from "../../models/ATTRIBUTE";
-import AttributeIcon from "./AttributeIcon";
+import AttributeIcon from "../AttributeIcon";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

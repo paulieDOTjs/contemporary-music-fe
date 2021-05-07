@@ -5,6 +5,7 @@ import { SongType } from "../models/SongType";
 import { SetErrorMessageType } from "../models/MessageType";
 
 import "./CatalogPage.scss";
+import CatalogTopNav from "../components/CatalogTopNav/CatalogTopNav";
 
 export default function CatalogPage(props: {
   songs?: SongType[];
@@ -12,6 +13,7 @@ export default function CatalogPage(props: {
 }) {
   return (
     <div className="CatalogPage">
+      <CatalogTopNav />
       <section>
         {props.songs ? (
           props.songs.map((song) => {

@@ -5,7 +5,7 @@ import GradeIcon from "@material-ui/icons/Grade";
 import WatchLaterIcon from "@material-ui/icons/WatchLater";
 import SpeedIcon from "@material-ui/icons/Speed";
 import MicIcon from "@material-ui/icons/Mic";
-import { ATTRIBUTE } from "../../models/ATTRIBUTE";
+import { ATTRIBUTE } from "../models/ATTRIBUTE";
 
 export default function AttributeIcon(props: { attribute: ATTRIBUTE }) {
   return <>{getAttrIcon(props.attribute)}</>;
