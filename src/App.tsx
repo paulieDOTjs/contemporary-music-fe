@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 import "./App.scss";
 
@@ -13,6 +14,7 @@ import ErrorMessage from "./components/ErrorMessage";
 import CatalogPage from "./pages/CatalogPage";
 
 import NavBar from "./components/NavBar";
+import AccountPage from "./pages/AccountPage";
 
 function App() {
   const [errorMessage, setErrorMessage] = useState<string>("");
@@ -32,10 +34,14 @@ function App() {
 
   return (
     <Router>
+      <CssBaseline />
       <div className="wrapper">
         <Switch>
           <Route exact path="/catalog">
             <CatalogPage setErrorMessage={setErrorMessage} songs={catalog} />
+          </Route>
+          <Route exact path="/account">
+            <AccountPage />
           </Route>
           <Route exact path="/">
             <HomePage />

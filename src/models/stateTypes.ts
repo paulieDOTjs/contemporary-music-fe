@@ -1,3 +1,3 @@
 import { Dispatch, SetStateAction } from "react";
 
-export type setErrorMessageType = Dispatch<SetStateAction<string>>;
+export type SetErrorMessageType = Dispatch<SetStateAction<string>>;
