@@ -10,13 +10,17 @@ export default function HomePage(props: {
 }) {
   return (
     <div className="HomePage">
-      <h1>Modern Masters</h1>
-      <h2>Suggested Songs for Contemporary Voice Study</h2>
-      <Link to="/catalog">
-        <Button size="large" variant="contained" color="secondary">
-          View Catalog
-        </Button>
-      </Link>
+      <header>
+        <h1>Modern Masters</h1>
+        <h2>Suggested Songs for Contemporary Voice Study</h2>
+      </header>
+      <section>
+        <Link to="/catalog">
+          <Button variant="contained" color="secondary">
+            View Catalog
+          </Button>
+        </Link>
+      </section>
     </div>
   );
 }
