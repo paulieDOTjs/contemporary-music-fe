@@ -2,7 +2,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import SongCard from "../components/SongCard/SongCard";
 import { SongType } from "../models/SongType";
-import { setErrorMessageType } from "../models/stateTypes";
+import { setErrorMessageType } from "../models/StateTypes";
 
 export default function CatalogPage(props: {
   songs?: SongType[];
@@ -11,10 +11,12 @@ export default function CatalogPage(props: {
   return (
     <div className="CatalogPage">
       <section>
-        {!props.songs ? (
-          <CircularProgress />
+        {props.songs ? (
+          props.songs.map((song) => {
+            return <SongCard song={song} />;
+          })
         ) : (
-          <SongCard song={props.songs[1]} />
+          <CircularProgress />
         )}
       </section>
     </div>

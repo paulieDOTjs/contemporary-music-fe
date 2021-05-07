@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import "./HomePage.scss";
 
-import { setErrorMessageType } from "../models/stateTypes";
+import { setErrorMessageType } from "../models/StateTypes";
 
 export default function HomePage(props: {
   setErrorMessage: setErrorMessageType;

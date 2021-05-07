@@ -5,12 +5,13 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
 import { red } from "@material-ui/core/colors";
 import PlayArrow from "@material-ui/icons/PlayArrow";
 
 import { SongType } from "../../models/SongType";
-import AttributeList, { attribute } from "./AttributeList";
+import { ATTRIBUTE } from "../../models/ATTRIBUTE";
+import AttributeList from "./AttributeList";
+
 import Tags from "./tags";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -38,40 +39,60 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function SongCard(props: { song: SongType }) {
+export default function SongCard(props: { song: SongType | undefined }) {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardHeader
-        title={props.song.title ?? ""}
-        subheader={props.song.madeFamousBy ?? ""}
+        title={props.song?.title ?? ""}
+        subheader={props.song?.madeFamousBy ?? ""}
       />
       <CardMedia
         className={classes.media}
         image="https://via.placeholder.com/350x150"
-        title={props.song.title ?? ""}
+        title={props.song?.title ?? ""}
       />
       <CardContent>
-        <Typography variant="body2" color="textPrimary">
-          <AttributeList
-            items={[
-              { attribute: attribute.style, data: props.song.style },
-              {
-                attribute: attribute.degreeOfDifficulty,
-                data: props.song.degreeOfDifficulty,
-              },
-              { attribute: attribute.tempo, data: props.song.tempo },
-              { attribute: attribute.decade, data: props.song.decade },
-            ]}
-          />
-        </Typography>
+        <AttributeList
+          items={[
+            { attribute: ATTRIBUTE.STYLE, data: props.song?.style },
+            {
+              attribute: ATTRIBUTE.DEGREE_OF_DIFFICULTY,
+              data: props.song?.degreeOfDifficulty,
+            },
+            { attribute: ATTRIBUTE.TEMPO, data: props.song?.tempo },
+            { attribute: ATTRIBUTE.DECADE, data: props.song?.decade },
+          ]}
+        />
+
         <Tags
           tags={[
-            { data: props.song.style, activated: true },
-            { data: props.song.degreeOfDifficulty, activated: false },
-            { data: props.song.decade, activated: true },
-            { data: props.song.tempo, activated: false },
+            {
+              attribute: ATTRIBUTE.STYLE,
+              data: props.song?.style,
+              activated: true,
+            },
+            {
+              attribute: ATTRIBUTE.DEGREE_OF_DIFFICULTY,
+              data: props.song?.degreeOfDifficulty,
+              activated: false,
+            },
+            {
+              attribute: ATTRIBUTE.DECADE,
+              data: props.song?.decade,
+              activated: false,
+            },
+            {
+              attribute: ATTRIBUTE.TEMPO,
+              data: props.song?.tempo,
+              activated: false,
+            },
+            {
+              data: props.song?.madeFamousBy,
+              attribute: ATTRIBUTE.MADE_FAMOUS_BY,
+              activated: false,
+            },
           ]}
         />
       </CardContent>

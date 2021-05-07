@@ -2,6 +2,10 @@ import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
+import Avatar from "@material-ui/core/Avatar";
+import { ATTRIBUTE } from "../../models/ATTRIBUTE";
+import AttributeIcon from "./AttributeIcon";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -13,16 +17,9 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export enum attribute {
-  style = "STYLE",
-  decade = "DECADE",
-  degreeOfDifficulty = "DEGREE OF DIFFICULT",
-  tempo = "TEMPO",
-}
-
 export default function AttributeList(props: {
   items: {
-    attribute: attribute;
+    attribute: ATTRIBUTE;
     data: string | undefined | number;
   }[];
 }) {
@@ -34,6 +31,11 @@ export default function AttributeList(props: {
         .filter((item) => item.data)
         .map((item) => (
           <ListItem key={"listItem" + item.attribute}>
+            <ListItemAvatar>
+              <Avatar>
+                <AttributeIcon attribute={item.attribute} />
+              </Avatar>
+            </ListItemAvatar>
             <ListItemText
               key={"test" + item.attribute}
               primary={item.attribute}
