@@ -2,7 +2,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 import SongCard from "../components/SongCard/SongCard";
 import { SongType } from "../models/SongType";
-import { SetErrorMessageType } from "../models/StateTypes";
+import { SetErrorMessageType } from "../models/MessageType";
 
 import "./CatalogPage.scss";
 
