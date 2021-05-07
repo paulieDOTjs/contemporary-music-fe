@@ -18,9 +18,6 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import GradeIcon from "@material-ui/icons/Grade";
-import WatchLaterIcon from "@material-ui/icons/WatchLater";
-import SpeedIcon from "@material-ui/icons/Speed";
-import MicIcon from "@material-ui/icons/Mic";
 import MusicNoteIcon from "@material-ui/icons/MusicNote";
 import MoreIcon from "@material-ui/icons/MoreVert";
 
