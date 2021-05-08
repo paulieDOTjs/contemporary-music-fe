@@ -15,6 +15,7 @@ export const getAllSongs = gql`
       songFeatures
       tempo
       fileName
+      imageURL
     }
   }
 `;

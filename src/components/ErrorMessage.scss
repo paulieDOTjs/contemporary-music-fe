@@ -1,0 +1,19 @@
+.ErrorMessage {
+  position: fixed;
+  right: 16px;
+  top: 16px;
+  background-color: #ffadad;
+  height: 100px;
+  width: 200px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 16px;
+  opacity: 100;
+  z-index: 100;
+}
+
+.active {
+  opacity: 0;
+}

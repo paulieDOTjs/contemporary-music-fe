@@ -11,4 +11,5 @@ export type SongType = {
   songFeatures: string[];
   tempo?: number;
   fileName?: string;
+  imageURL?: string;
 };

@@ -38,7 +38,7 @@ export default function SongCard(props: { song: SongType | undefined }) {
       />
       <CardMedia
         className={classes.media}
-        image={dummy}
+        image={props.song?.imageURL ?? dummy}
         title={props.song?.title ?? ""}
       />
       <CardContent>

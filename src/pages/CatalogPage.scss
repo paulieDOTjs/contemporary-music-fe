@@ -2,10 +2,18 @@
   height: 100%;
   background-color: black;
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
   section {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin: auto;
+    overflow-y: scroll;
+    .loading {
+      display: grid;
+      place-content: center;
+    }
   }
 }

@@ -8,6 +8,7 @@ import "./App.scss";
 import { getAllSongs } from "./utils/graphql/gqlQueries";
 import { client } from "./utils/graphql/apolloClient";
 import { SongType } from "./models/SongType";
+import { ERROR_MESSAGES } from "./models/MessageType";
 
 import HomePage from "./pages/HomePage";
 import ErrorMessage from "./components/ErrorMessage";
@@ -17,20 +18,22 @@ import NavBar from "./components/NavBar";
 import AccountPage from "./pages/AccountPage";
 
 function App() {
-  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<ERROR_MESSAGES>(
+    ERROR_MESSAGES.CLEAR
+  );
   const [catalog, setCatalog] = useState<SongType[]>([]);
+  const [retries, setRetries] = useState<number>(0);
   const { error, data } = useQuery(getAllSongs, { client });
 
   useEffect(() => {
     if (data) {
       console.log("Connected to backend server successfully");
       setCatalog(data.getSongs);
-      console.log(data.getSongs);
     }
     if (error) {
-      setErrorMessage("Error loading data.");
+      setErrorMessage(ERROR_MESSAGES.FAILED_LOAD_DATA);
     }
-  }, [data, error, setErrorMessage]);
+  }, [data, error, setErrorMessage, retries]);
 
   return (
     <Router>
@@ -38,7 +41,7 @@ function App() {
       <div className="wrapper">
         <Switch>
           <Route exact path="/catalog">
-            <CatalogPage setErrorMessage={setErrorMessage} songs={catalog} />
+            <CatalogPage songs={catalog} />
           </Route>
           <Route exact path="/account">
             <AccountPage />
@@ -47,7 +50,16 @@ function App() {
             <HomePage />
           </Route>
         </Switch>
-        {errorMessage ? <ErrorMessage message={errorMessage} /> : ""}
+        {errorMessage && errorMessage.length > 0 ? (
+          <ErrorMessage
+            retries={retries}
+            setRetries={setRetries}
+            setErrorMessage={setErrorMessage}
+            message={errorMessage}
+          />
+        ) : (
+          ""
+        )}
       </div>
       <NavBar></NavBar>
     </Router>
