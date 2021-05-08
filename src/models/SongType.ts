@@ -3,7 +3,7 @@ export type SongType = {
   title?: string;
   madeFamousBy?: string;
   degreeOfDifficulty?: string;
-  style?: string;
+  genre?: string;
   composers: string[];
   performanceNotes: string[];
   studentsStudied: string[];

@@ -18,6 +18,7 @@ const useStyles = makeStyles(() =>
   createStyles({
     root: {
       maxWidth: 345,
+      minWidth: 300,
       margin: 24,
     },
     media: {
@@ -44,7 +45,7 @@ export default function SongCard(props: { song: SongType | undefined }) {
       <CardContent>
         <AttributeList
           items={[
-            { attribute: ATTRIBUTE.STYLE, data: props.song?.style },
+            { attribute: ATTRIBUTE.GENRE, data: props.song?.genre },
             {
               attribute: ATTRIBUTE.DEGREE_OF_DIFFICULTY,
               data: props.song?.degreeOfDifficulty,
@@ -57,8 +58,8 @@ export default function SongCard(props: { song: SongType | undefined }) {
         <Tags
           tags={[
             {
-              attribute: ATTRIBUTE.STYLE,
-              data: props.song?.style,
+              attribute: ATTRIBUTE.GENRE,
+              data: props.song?.genre,
               activated: true,
             },
             {

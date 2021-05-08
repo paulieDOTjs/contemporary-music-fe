@@ -9,11 +9,11 @@ import CatalogTopNav from "../components/CatalogTopNav/CatalogTopNav";
 export default function CatalogPage(props: { songs?: SongType[] }) {
   return (
     <div className="CatalogPage">
-      <CatalogTopNav />
+      <CatalogTopNav allSongs={props.songs} />
       <section>
         {props.songs && props.songs.length > 0 ? (
           props.songs.map((song) => {
-            return <SongCard song={song} />;
+            return <SongCard key={song.title + "card"} song={song} />;
           })
         ) : (
           <div className="loading">

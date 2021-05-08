@@ -11,7 +11,7 @@ export default function AttributeIcon(props: { attribute: ATTRIBUTE }) {
 
 const getAttrIcon = (attr: ATTRIBUTE) => {
   switch (attr) {
-    case ATTRIBUTE.STYLE:
+    case ATTRIBUTE.GENRE:
       return <MusicNoteIcon />;
     case ATTRIBUTE.DEGREE_OF_DIFFICULTY:
       return <GradeIcon />;

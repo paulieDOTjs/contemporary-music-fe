@@ -7,7 +7,7 @@ export const getAllSongs = gql`
       title
       madeFamousBy
       degreeOfDifficulty
-      style
+      genre
       composers
       performanceNotes
       studentsStudied
