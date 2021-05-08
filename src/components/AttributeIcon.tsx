@@ -1,5 +1,3 @@
-import React from "react";
-
 import MusicNoteIcon from "@material-ui/icons/MusicNote";
 import GradeIcon from "@material-ui/icons/Grade";
 import WatchLaterIcon from "@material-ui/icons/WatchLater";
