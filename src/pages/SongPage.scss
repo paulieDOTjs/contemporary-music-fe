@@ -1,0 +1,12 @@
+.SongPage {
+  height: 100%;
+  background-color: black;
+  overflow-y: scroll;
+  display: grid;
+  place-content: center;
+  .additional {
+    .MuiTypography-body2 {
+      margin-top: 24px;
+    }
+  }
+}

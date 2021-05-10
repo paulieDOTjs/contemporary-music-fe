@@ -22,7 +22,7 @@ export const useStyles = makeStyles((theme: Theme) =>
         display: "block",
       },
       alignSelf: "center",
-      fontSize: 14,
+      marginRight: 8,
     },
     search: {
       position: "relative",
@@ -49,7 +49,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       justifyContent: "center",
     },
     inputRoot: {
-      color: "inherit",
+      color: "black",
     },
     inputInput: {
       padding: theme.spacing(1, 1, 1, 0),

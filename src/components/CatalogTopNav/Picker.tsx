@@ -23,10 +23,7 @@ export default function SimpleSelect(props: {
 
   return (
     <>
-      <FormControl
-        className={classes.formControl}
-        style={{ minWidth: "200px" }}
-      >
+      <FormControl className={classes.formControl} style={{ width: "200px" }}>
         <InputLabel aria-valuetext="Any" id={props.attribute}>
           <AttributeIcon attribute={props.attribute} />
           {props.attribute}

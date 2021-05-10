@@ -1,35 +1,22 @@
 import { useEffect } from "react";
-import {
-  SetErrorMessageType,
-  ERROR_MESSAGES,
-  SetRetriesType,
-} from "../models/MessageType";
+import { SetErrorMessageType, ERROR_MESSAGES } from "../models/MessageType";
 import "./ErrorMessage.scss";
 
 export default function ErrorMessage(props: {
-  retries: number;
-  setRetries: SetRetriesType;
   message: string;
   setErrorMessage: SetErrorMessageType;
 }) {
-  const { setErrorMessage, retries, setRetries } = props;
-
+  const { setErrorMessage } = props;
   useEffect(() => {
-    let timer: NodeJS.Timeout;
-    if (retries > 4) {
-      timer = setTimeout(
-        () => setErrorMessage(ERROR_MESSAGES.RETRY_OVERLOAD),
-        5000
-      );
-    } else {
-      setRetries(retries + 1);
-      timer = setTimeout(() => setErrorMessage(ERROR_MESSAGES.CLEAR), 5000);
-    }
+    const timer = setTimeout(
+      () => setErrorMessage(ERROR_MESSAGES.FAILED_LOAD_DATA),
+      5000
+    );
 
     return () => {
       clearTimeout(timer);
     };
-  }, [setErrorMessage, retries, setRetries]);
+  }, [setErrorMessage]);
 
   return <div className="ErrorMessage">{props.message}</div>;
 }

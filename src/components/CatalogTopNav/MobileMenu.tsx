@@ -3,6 +3,7 @@ import Menu from "@material-ui/core/Menu";
 import Picker from "./Picker";
 import { ATTRIBUTE } from "../../models/ATTRIBUTE";
 import { SongType } from "../../models/SongType";
+import BPMSlider from "./BPMSlider";
 
 export default function MobileMenu(props: {
   mobileMoreAnchorEl: any;
@@ -75,6 +76,9 @@ export default function MobileMenu(props: {
                 : undefined
             }
           />
+        </MenuItem>
+        <MenuItem>
+          <BPMSlider />
         </MenuItem>
       </Menu>
     </>

@@ -16,24 +16,26 @@ import CatalogPage from "./pages/CatalogPage";
 
 import NavBar from "./components/NavBar";
 import AccountPage from "./pages/AccountPage";
+import SongPage from "./pages/SongPage";
 
 function App() {
   const [errorMessage, setErrorMessage] = useState<ERROR_MESSAGES>(
     ERROR_MESSAGES.CLEAR
   );
   const [catalog, setCatalog] = useState<SongType[]>([]);
-  const [retries, setRetries] = useState<number>(0);
+  const [loading, setLoading] = useState(true);
   const { error, data } = useQuery(getAllSongs, { client });
 
   useEffect(() => {
     if (data) {
+      setLoading(false);
       console.log("Connected to backend server successfully");
       setCatalog(data.getSongs);
     }
     if (error) {
       setErrorMessage(ERROR_MESSAGES.FAILED_LOAD_DATA);
     }
-  }, [data, error, setErrorMessage, retries]);
+  }, [data, error, setErrorMessage]);
 
   return (
     <Router>
@@ -41,7 +43,10 @@ function App() {
       <div className="wrapper">
         <Switch>
           <Route exact path="/catalog">
-            <CatalogPage songs={catalog} />
+            <CatalogPage songs={catalog} loading={loading} />
+          </Route>
+          <Route exact path="/song">
+            <SongPage song={catalog[7]} loading={loading} />
           </Route>
           <Route exact path="/account">
             <AccountPage />
@@ -52,8 +57,6 @@ function App() {
         </Switch>
         {errorMessage && errorMessage.length > 0 ? (
           <ErrorMessage
-            retries={retries}
-            setRetries={setRetries}
             setErrorMessage={setErrorMessage}
             message={errorMessage}
           />

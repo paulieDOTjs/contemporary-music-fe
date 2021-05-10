@@ -13,6 +13,9 @@ import { ATTRIBUTE } from "../../models/ATTRIBUTE";
 import { SongType } from "../../models/SongType";
 import MobileMenu from "./MobileMenu";
 import { useStyles } from "./NavStyles";
+import BPMSlider from "./BPMSlider";
+
+import "./CatalogTopNav.scss";
 
 export default function CatalogTopNav(props: { allSongs?: SongType[] }) {
   const classes = useStyles();
@@ -66,25 +69,27 @@ export default function CatalogTopNav(props: { allSongs?: SongType[] }) {
   );
 
   return (
-    <div>
-      <AppBar position="static">
+    <div className="CatalogTopNav">
+      <AppBar style={{ backgroundColor: "grey" }} position="static">
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Song Catalog
-          </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
+          <div className="left">
+            <Typography className={classes.title} variant="h6" noWrap>
+              Song Catalog
+            </Typography>
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="Song or Artist Name..."
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                inputProps={{ "aria-label": "search" }}
+                onSubmit={() => handleSubmit()}
+              />
             </div>
-            <InputBase
-              placeholder="Song or Artist Name..."
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ "aria-label": "search" }}
-              onSubmit={() => handleSubmit()}
-            />
           </div>
           <div className={classes.sectionDesktop}>
             <Typography className={classes.subTitle} variant="h6" noWrap>
@@ -132,6 +137,8 @@ export default function CatalogTopNav(props: { allSongs?: SongType[] }) {
                   : undefined
               }
             />
+
+            <BPMSlider />
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
