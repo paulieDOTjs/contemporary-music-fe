@@ -1,4 +1,3 @@
-import { SongType } from "../models/SongType";
 import { makeStyles, createStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
@@ -8,13 +7,12 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 
-import { ATTRIBUTE } from "../models/ATTRIBUTE";
-
-import dummy from "../media/dummy.jpg";
+import AttributeList from "../../components/SongCard/AttributeList";
+import dummy from "../../media/dummy.jpg";
+import { ATTRIBUTE } from "../../models/ATTRIBUTE";
+import { SongType } from "../../models/SongType";
 
 import "./SongPage.scss";
-
-import AttributeList from "../components/SongCard/AttributeList";
 
 import PlayArrow from "@material-ui/icons/PlayArrow";
 import { Typography } from "@material-ui/core";

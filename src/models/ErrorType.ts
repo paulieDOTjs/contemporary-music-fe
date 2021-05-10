@@ -1,7 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 
 export type SetErrorMessageType = Dispatch<SetStateAction<ERROR_MESSAGES>>;
-export type SetRetriesType = Dispatch<SetStateAction<number>>;
 
 export enum ERROR_MESSAGES {
   CLEAR = "",

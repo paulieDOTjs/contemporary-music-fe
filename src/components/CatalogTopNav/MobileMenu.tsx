@@ -1,9 +1,12 @@
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
+
 import Picker from "./Picker";
+import BPMSlider from "./BPMSlider";
+
 import { ATTRIBUTE } from "../../models/ATTRIBUTE";
 import { SongType } from "../../models/SongType";
-import BPMSlider from "./BPMSlider";
+import { HandleFilterArgsType } from "../../models/FilterType";
 
 export default function MobileMenu(props: {
   mobileMoreAnchorEl: any;
@@ -11,6 +14,7 @@ export default function MobileMenu(props: {
   isMobileMenuOpen: any;
   handleMobileMenuClose: any;
   allSongs?: SongType[];
+  handleSetFilters: (filt: HandleFilterArgsType) => void;
 }) {
   const {
     isMobileMenuOpen,
@@ -31,6 +35,7 @@ export default function MobileMenu(props: {
       >
         <MenuItem>
           <Picker
+            handleSetFilters={props.handleSetFilters}
             attribute={ATTRIBUTE.GENRE}
             opts={
               props.allSongs
@@ -47,6 +52,7 @@ export default function MobileMenu(props: {
         </MenuItem>
         <MenuItem>
           <Picker
+            handleSetFilters={props.handleSetFilters}
             attribute={ATTRIBUTE.DECADE}
             opts={
               props.allSongs
@@ -63,6 +69,7 @@ export default function MobileMenu(props: {
         </MenuItem>
         <MenuItem>
           <Picker
+            handleSetFilters={props.handleSetFilters}
             attribute={ATTRIBUTE.DEGREE_OF_DIFFICULTY}
             opts={
               props.allSongs
@@ -78,7 +85,7 @@ export default function MobileMenu(props: {
           />
         </MenuItem>
         <MenuItem>
-          <BPMSlider />
+          <BPMSlider handleSetFilters={props.handleSetFilters} />
         </MenuItem>
       </Menu>
     </>

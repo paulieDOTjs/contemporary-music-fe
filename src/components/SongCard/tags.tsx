@@ -1,6 +1,5 @@
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import Chip from "@material-ui/core/Chip";
-import DoneIcon from "@material-ui/icons/Done";
 
 import "./tags.scss";
 
@@ -22,12 +21,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function Tags(props: {
   tags: {
-    attribute: ATTRIBUTE;
+    attribute: Exclude<ATTRIBUTE, "MADE_FAMOUS_BY">;
     data: string | undefined | number;
     activated: boolean;
   }[];
 }) {
   const classes = useStyles();
+
+  console.log("hi", props.tags);
 
   return (
     <div className="tags">
@@ -42,9 +43,7 @@ export default function Tags(props: {
                   avatar={<AttributeIcon attribute={tag.attribute} />}
                   label={tag.data}
                   clickable
-                  color={tag.activated ? "primary" : "secondary"}
-                  deleteIcon={<DoneIcon />}
-                  // variant="outlined"
+                  color={tag.activated ? "secondary" : "primary"}
                 />
               </div>
             ))}

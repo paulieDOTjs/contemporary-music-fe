@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { SetErrorMessageType, ERROR_MESSAGES } from "../models/MessageType";
+import { SetErrorMessageType, ERROR_MESSAGES } from "../models/ErrorType";
 import "./ErrorMessage.scss";
 
 export default function ErrorMessage(props: {

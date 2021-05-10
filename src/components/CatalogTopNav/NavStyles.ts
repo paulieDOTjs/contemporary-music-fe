@@ -12,13 +12,13 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     title: {
       display: "none",
-      [theme.breakpoints.up("sm")]: {
+      [theme.breakpoints.up("lg")]: {
         display: "block",
       },
     },
     subTitle: {
       display: "none",
-      [theme.breakpoints.up("sm")]: {
+      [theme.breakpoints.up("lg")]: {
         display: "block",
       },
       alignSelf: "center",
@@ -34,7 +34,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(2),
       marginLeft: 0,
       width: "100%",
-      [theme.breakpoints.up("sm")]: {
+      [theme.breakpoints.up("lg")]: {
         marginLeft: theme.spacing(4),
         width: "auto",
       },

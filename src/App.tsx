@@ -8,15 +8,15 @@ import "./App.scss";
 import { getAllSongs } from "./utils/graphql/gqlQueries";
 import { client } from "./utils/graphql/apolloClient";
 import { SongType } from "./models/SongType";
-import { ERROR_MESSAGES } from "./models/MessageType";
+import { ERROR_MESSAGES } from "./models/ErrorType";
 
-import HomePage from "./pages/HomePage";
+import HomePage from "./pages/HomePage/HomePage";
+import CatalogPage from "./pages/CatalogPage/CatalogPage";
 import ErrorMessage from "./components/ErrorMessage";
-import CatalogPage from "./pages/CatalogPage";
 
 import NavBar from "./components/NavBar";
-import AccountPage from "./pages/AccountPage";
-import SongPage from "./pages/SongPage";
+import AccountPage from "./pages/AccountPage/AccountPage";
+import SongPage from "./pages/SongPage/SongPage";
 
 function App() {
   const [errorMessage, setErrorMessage] = useState<ERROR_MESSAGES>(
