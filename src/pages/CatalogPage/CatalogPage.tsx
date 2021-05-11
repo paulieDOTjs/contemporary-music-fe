@@ -61,18 +61,27 @@ export default function CatalogPage(props: {
       return false;
 
     if (
-      (song.tempo && song.tempo < Math.min(...filters.tempoRange)) ||
-      (song.tempo && song.tempo > Math.max(...filters.tempoRange))
+      Math.min(...filters.tempoRange) ===
+        Math.min(...DEFAULT_FILTERS.tempoRange) &&
+      Math.max(...filters.tempoRange) ===
+        Math.max(...DEFAULT_FILTERS.tempoRange)
+    ) {
+      return true;
+    } else if (!song.tempo) {
+      return false;
+    } else if (
+      song.tempo < Math.min(...filters.tempoRange) ||
+      song.tempo > Math.max(...filters.tempoRange)
     ) {
       return false;
     }
 
-    //  If the song.title exists and not include search string OR
-    //  If the song.madeFamousBy exists and not include search string OR
     if (
       (song.title && includes(song.title, filters.searchString)) ||
       (song.madeFamousBy && includes(song.madeFamousBy, filters.searchString))
     ) {
+      //  If the song.title exists and not include search string OR
+      //  If the song.madeFamousBy exists and not include search string OR
       return true;
     }
     return false;

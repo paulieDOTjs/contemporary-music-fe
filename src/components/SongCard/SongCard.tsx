@@ -14,7 +14,7 @@ import AttributeList from "./AttributeList";
 
 import Tags from "./tags";
 import "./SongCard.scss";
-import { FilterType } from "../../models/FilterType";
+import { DEFAULT_FILTERS, FilterType } from "../../models/FilterType";
 import { includes } from "../../utils/DataCompare";
 
 const useStyles = makeStyles(() =>
@@ -72,7 +72,7 @@ export default function SongCard(props: {
                   attribute: ATTRIBUTE.GENRE,
                   data: song.genre,
                   activated: !song.genre
-                    ? true
+                    ? false
                     : includes(song.genre, props.filters.genre) &&
                       props.filters.genre.length > 0,
                 },
@@ -80,7 +80,7 @@ export default function SongCard(props: {
                   attribute: ATTRIBUTE.DEGREE_OF_DIFFICULTY,
                   data: song.degreeOfDifficulty,
                   activated: !song.degreeOfDifficulty
-                    ? true
+                    ? false
                     : includes(
                         song.degreeOfDifficulty,
                         props.filters.degreeOfDifficulty
@@ -90,17 +90,22 @@ export default function SongCard(props: {
                   attribute: ATTRIBUTE.DECADE,
                   data: song.decade,
                   activated: !song.decade
-                    ? true
+                    ? false
                     : includes(song.decade, props.filters.decade) &&
                       props.filters.decade.length > 0,
                 },
                 {
                   attribute: ATTRIBUTE.TEMPO,
                   data: song.tempo,
-                  activated: !song.tempo
-                    ? true
-                    : song.tempo < Math.min(...props.filters.tempoRange) &&
-                      song.tempo > Math.max(...props.filters.tempoRange),
+                  activated:
+                    !song.tempo ||
+                    (Math.max(...props.filters.tempoRange) ===
+                      Math.max(...DEFAULT_FILTERS.tempoRange) &&
+                      Math.min(...props.filters.tempoRange) ===
+                        Math.min(...DEFAULT_FILTERS.tempoRange))
+                      ? false
+                      : song.tempo > Math.min(...props.filters.tempoRange) &&
+                        song.tempo < Math.max(...props.filters.tempoRange),
                 },
               ]}
             />
