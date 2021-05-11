@@ -48,13 +48,24 @@ export default function CatalogPage(props: {
 
   const handleFilter = (song: SongType): boolean => {
     //if song decade does not include filter decade return false
-    if (song.decade && !includes(song.decade, filters.decade)) return false;
-
-    //if song decade does not include filter decade return false
-    if (song.genre && !includes(song.genre, filters.genre)) return false;
+    if (
+      filters.decade.length > 0 &&
+      song.decade &&
+      !includes(song.decade, filters.decade)
+    )
+      return false;
 
     //if song decade does not include filter decade return false
     if (
+      filters.genre.length > 0 &&
+      song.genre &&
+      !includes(song.genre, filters.genre)
+    )
+      return false;
+
+    //if song decade does not include filter decade return false
+    if (
+      filters.degreeOfDifficulty.length > 0 &&
       song.degreeOfDifficulty &&
       !includes(song.degreeOfDifficulty, filters.degreeOfDifficulty)
     )
@@ -82,8 +93,6 @@ export default function CatalogPage(props: {
       (song.title && includes(song.title, filters.searchString)) ||
       (song.madeFamousBy && includes(song.madeFamousBy, filters.searchString))
     ) {
-      //  If the song.title exists and not include search string OR
-      //  If the song.madeFamousBy exists and not include search string OR
       return true;
     }
     return false;
