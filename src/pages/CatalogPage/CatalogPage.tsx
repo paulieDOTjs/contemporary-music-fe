@@ -49,25 +49,23 @@ export default function CatalogPage(props: {
   const handleFilter = (song: SongType): boolean => {
     //if song decade does not include filter decade return false
     if (
-      filters.decade.length > 0 &&
-      song.decade &&
-      !includes(song.decade, filters.decade)
+      (filters.decade.length > 0 && !song.decade) ||
+      (song.decade && !includes(song.decade, filters.decade))
     )
       return false;
 
     //if song decade does not include filter decade return false
     if (
-      filters.genre.length > 0 &&
-      song.genre &&
-      !includes(song.genre, filters.genre)
+      (filters.genre.length > 0 && !song.genre) ||
+      (song.genre && !includes(song.genre, filters.genre))
     )
       return false;
 
     //if song decade does not include filter decade return false
     if (
-      filters.degreeOfDifficulty.length > 0 &&
-      song.degreeOfDifficulty &&
-      !includes(song.degreeOfDifficulty, filters.degreeOfDifficulty)
+      (filters.degreeOfDifficulty.length > 0 && !song.degreeOfDifficulty) ||
+      (song.degreeOfDifficulty &&
+        !includes(song.degreeOfDifficulty, filters.degreeOfDifficulty))
     )
       return false;
 
