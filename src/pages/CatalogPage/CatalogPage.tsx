@@ -60,13 +60,15 @@ export default function CatalogPage(props: {
     )
       return false;
 
+    // if the current filters match default skip.
+    //else if no tempo don't return
+    // else if out of tempo range don't return
     if (
       Math.min(...filters.tempoRange) ===
         Math.min(...DEFAULT_FILTERS.tempoRange) &&
       Math.max(...filters.tempoRange) ===
         Math.max(...DEFAULT_FILTERS.tempoRange)
     ) {
-      return true;
     } else if (!song.tempo) {
       return false;
     } else if (

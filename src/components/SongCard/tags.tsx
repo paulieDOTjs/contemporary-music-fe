@@ -28,8 +28,6 @@ export default function Tags(props: {
 }) {
   const classes = useStyles();
 
-  console.log("hi", props.tags);
-
   return (
     <div className="tags">
       {!props.tags
