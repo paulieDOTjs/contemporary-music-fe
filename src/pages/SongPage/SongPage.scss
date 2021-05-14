@@ -1,12 +1,23 @@
 .SongPage {
   height: 100%;
   background-color: black;
-  overflow-y: scroll;
-  display: grid;
-  place-content: center;
-  .additional {
-    .MuiTypography-body2 {
-      margin-top: 24px;
+  overflow-y: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    overflow-y: scroll;
+    height: 100%;
+    width: 100%;
+    .additional {
+      .MuiTypography-body2 {
+        margin-top: 24px;
+      }
     }
   }
 }

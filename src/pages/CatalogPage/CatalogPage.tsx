@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
-import SongCard from "../../components/SongCard/SongCard";
+import SongCardShort from "../../components/SongCard/SongCardShort/SongCardShort";
 import { SongType } from "../../models/SongType";
 
 import "./CatalogPage.scss";
@@ -108,7 +108,7 @@ export default function CatalogPage(props: {
         ) : props.songs && props.songs.length > 0 ? (
           props.songs.filter(handleFilter).map((song) => {
             return (
-              <SongCard
+              <SongCardShort
                 handleSetFilters={handleSetFilters}
                 key={song.title + "card"}
                 filters={filters}

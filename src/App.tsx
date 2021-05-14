@@ -31,6 +31,8 @@ function App() {
       setLoading(false);
       console.log("Connected to backend server successfully");
       setCatalog(data.getSongs);
+
+      console.log(data);
     }
     if (error) {
       setErrorMessage(ERROR_MESSAGES.FAILED_LOAD_DATA);
@@ -45,8 +47,8 @@ function App() {
           <Route exact path="/catalog">
             <CatalogPage songs={catalog} loading={loading} />
           </Route>
-          <Route exact path="/song">
-            <SongPage song={catalog[7]} loading={loading} />
+          <Route path="/song/:madeFamousBy/:title">
+            <SongPage songs={catalog} loading={loading} />
           </Route>
           <Route exact path="/account">
             <AccountPage />
@@ -64,7 +66,7 @@ function App() {
           ""
         )}
       </div>
-      <NavBar></NavBar>
+      <NavBar />
     </Router>
   );
 }

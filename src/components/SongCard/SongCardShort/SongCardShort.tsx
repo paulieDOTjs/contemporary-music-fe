@@ -7,19 +7,19 @@ import CardActions from "@material-ui/core/CardActions";
 import { Button } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-import { SongType } from "../../models/SongType";
-import { ATTRIBUTE } from "../../models/ATTRIBUTE";
-import dummy from "../../media/dummy.jpg";
-import AttributeList from "./SubComponents/AttributeList";
+import { SongType } from "../../../models/SongType";
+import { ATTRIBUTE } from "../../../models/ATTRIBUTE";
+import dummy from "../../../media/dummy.jpg";
+import AttributeList from "../SubComponents/AttributeList";
 
-import Tags from "./SubComponents/tags";
-import "./SongCard.scss";
+import Tags from "../SubComponents/tags";
+import "./SongCardShort.scss";
 import {
   DEFAULT_FILTERS,
   FilterType,
   HandleFilterArgsType,
-} from "../../models/FilterType";
-import { includes } from "../../utils/DataCompare";
+} from "../../../models/FilterType";
+import { includes } from "../../../utils/DataCompare";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -120,7 +120,7 @@ export default function SongCard(props: {
             disableSpacing
             style={{ display: "flex", justifyContent: "center" }}
           >
-            <Link to="/catalog">
+            <Link to={`/song/${song.madeFamousBy}/${song.title}`}>
               <Button size="small" variant="contained" color="primary">
                 More
               </Button>

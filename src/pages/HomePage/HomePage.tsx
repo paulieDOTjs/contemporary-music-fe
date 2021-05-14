@@ -12,7 +12,7 @@ export default function HomePage() {
       </header>
       <section>
         <Link to="/catalog">
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="secondary">
             View Catalog
           </Button>
         </Link>
