@@ -5,6 +5,9 @@ import { find } from "lodash";
 import { SongType } from "../../models/SongType";
 import SongCardExtended from "../../components/SongCard/SongCardExtended/SongCardExtended";
 
+import Button from "@material-ui/core/Button";
+import { Link } from "react-router-dom";
+
 import "./SongPage.scss";
 import { SongPageRoutParams } from "../../models/SongPageRouteParams";
 import { useEffect, useState } from "react";
@@ -38,7 +41,14 @@ export default function SongPage(props: {
       ) : song ? (
         <SongCardExtended song={song} />
       ) : (
-        "Not found"
+        <section className="NotFound">
+          <h1>Song not found</h1>
+          <Link to="/catalog">
+            <Button variant="contained" color="secondary">
+              Return to Catalog
+            </Button>
+          </Link>
+        </section>
       )}
     </div>
   );
