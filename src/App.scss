@@ -78,3 +78,11 @@ $mdc-typography-styles-caption: (
   font-family: unquote("Roboto"),
   font-size: 12,
 );
+
+@media (min-width: 1px) and (max-width: 700px) {
+  #root {
+    display: grid;
+    height: calc(100vh - 116px);
+    grid-template-rows: calc(100vh - 178px) 56px;
+  }
+}
