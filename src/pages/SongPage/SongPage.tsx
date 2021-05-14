@@ -39,7 +39,9 @@ export default function SongPage(props: {
       {loading ? (
         <CircularProgress />
       ) : song ? (
-        <SongCardExtended song={song} />
+        <section className="ExtendedCardWrapper">
+          <SongCardExtended song={song} />
+        </section>
       ) : (
         <section className="NotFound">
           <h1>Song not found</h1>

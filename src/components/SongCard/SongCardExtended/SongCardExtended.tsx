@@ -32,64 +32,62 @@ export default function SongPageCard(props: { song: SongType }) {
 
   const classes = useStyles();
   return (
-    <section>
-      <Card className={classes.root}>
-        <CardHeader
-          title={song.title ?? ""}
-          subheader={song.madeFamousBy ?? ""}
+    <Card className={classes.root}>
+      <CardHeader
+        title={song.title ?? ""}
+        subheader={song.madeFamousBy ?? ""}
+      />
+      <CardMedia
+        className={classes.media}
+        image={song.imageURL ?? dummy}
+        title={song.title ?? "title"}
+      />
+      <CardContent>
+        <AttributeList
+          items={[
+            { attribute: ATTRIBUTE.GENRE, data: song.genre },
+            {
+              attribute: ATTRIBUTE.DEGREE_OF_DIFFICULTY,
+              data: song.degreeOfDifficulty,
+            },
+            { attribute: ATTRIBUTE.TEMPO, data: song.tempo },
+            { attribute: ATTRIBUTE.DECADE, data: song.decade },
+          ]}
         />
-        <CardMedia
-          className={classes.media}
-          image={song.imageURL ?? dummy}
-          title={song.title ?? "title"}
-        />
-        <CardContent>
-          <AttributeList
-            items={[
-              { attribute: ATTRIBUTE.GENRE, data: song.genre },
-              {
-                attribute: ATTRIBUTE.DEGREE_OF_DIFFICULTY,
-                data: song.degreeOfDifficulty,
-              },
-              { attribute: ATTRIBUTE.TEMPO, data: song.tempo },
-              { attribute: ATTRIBUTE.DECADE, data: song.decade },
-            ]}
-          />
 
-          <div className="additional">
-            <Typography variant="body2" color="textSecondary" component="p">
-              {song.composers && song.composers.length > 0
-                ? "Composed by: " + song.composers.join(", ")
-                : ""}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {song.performanceNotes && song.performanceNotes.length > 0
-                ? "Performance notes: " + song.performanceNotes.join(", ")
-                : ""}
-            </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
-              {song.songFeatures && song.songFeatures.length > 0
-                ? "Song features: " + song.songFeatures.join(", ")
-                : ""}
-            </Typography>
+        <div className="additional">
+          <Typography variant="body2" color="textSecondary" component="p">
+            {song.composers && song.composers.length > 0
+              ? "Composed by: " + song.composers.join(", ")
+              : ""}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {song.performanceNotes && song.performanceNotes.length > 0
+              ? "Performance notes: " + song.performanceNotes.join(", ")
+              : ""}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {song.songFeatures && song.songFeatures.length > 0
+              ? "Song features: " + song.songFeatures.join(", ")
+              : ""}
+          </Typography>
 
-            <Typography variant="body2" color="textSecondary" component="p">
-              {song.studentsStudied && song.studentsStudied.length > 0
-                ? "Students studied: " + song.studentsStudied.join(", ")
-                : ""}
-            </Typography>
-          </div>
-        </CardContent>
-        <CardActions
-          disableSpacing
-          style={{ display: "flex", justifyContent: "center" }}
-        >
-          <Button size="small" variant="contained" color="primary">
-            <PlayArrow />
-            Listen
-          </Button>
-        </CardActions>
-      </Card>
-    </section>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {song.studentsStudied && song.studentsStudied.length > 0
+              ? "Students studied: " + song.studentsStudied.join(", ")
+              : ""}
+          </Typography>
+        </div>
+      </CardContent>
+      <CardActions
+        disableSpacing
+        style={{ display: "flex", justifyContent: "center" }}
+      >
+        <Button size="small" variant="contained" color="primary">
+          <PlayArrow />
+          Listen
+        </Button>
+      </CardActions>
+    </Card>
   );
 }

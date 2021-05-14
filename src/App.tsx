@@ -31,8 +31,6 @@ function App() {
       setLoading(false);
       console.log("Connected to backend server successfully");
       setCatalog(data.getSongs);
-
-      console.log(data);
     }
     if (error) {
       setErrorMessage(ERROR_MESSAGES.FAILED_LOAD_DATA);
