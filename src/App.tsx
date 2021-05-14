@@ -5,7 +5,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 import "./App.scss";
 
-import { getAllSongs } from "./utils/graphql/GQLQueries";
+import { getAllSongs } from "./utils/graphql/Queries";
 import { SongType } from "./models/SongType";
 import { ERROR_MESSAGES } from "./models/ErrorType";
 import { client } from "./utils/graphql/Client";
