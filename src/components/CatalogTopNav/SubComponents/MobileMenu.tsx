@@ -4,9 +4,9 @@ import Menu from "@material-ui/core/Menu";
 import Picker from "./Picker";
 import BPMSlider from "./BPMSlider";
 
-import { ATTRIBUTE } from "../../models/ATTRIBUTE";
-import { SongType } from "../../models/SongType";
-import { HandleFilterArgsType } from "../../models/FilterType";
+import { ATTRIBUTE } from "../../../models/ATTRIBUTE";
+import { SongType } from "../../../models/SongType";
+import { HandleFilterArgsType } from "../../../models/FilterType";
 
 export default function MobileMenu(props: {
   mobileMoreAnchorEl: any;

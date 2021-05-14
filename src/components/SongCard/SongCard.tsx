@@ -10,11 +10,15 @@ import { Link } from "react-router-dom";
 import { SongType } from "../../models/SongType";
 import { ATTRIBUTE } from "../../models/ATTRIBUTE";
 import dummy from "../../media/dummy.jpg";
-import AttributeList from "./AttributeList";
+import AttributeList from "./SubComponents/AttributeList";
 
-import Tags from "./tags";
+import Tags from "./SubComponents/tags";
 import "./SongCard.scss";
-import { DEFAULT_FILTERS, FilterType } from "../../models/FilterType";
+import {
+  DEFAULT_FILTERS,
+  FilterType,
+  HandleFilterArgsType,
+} from "../../models/FilterType";
 import { includes } from "../../utils/DataCompare";
 
 const useStyles = makeStyles(() =>
@@ -34,6 +38,7 @@ const useStyles = makeStyles(() =>
 export default function SongCard(props: {
   song: SongType | undefined;
   filters: FilterType;
+  handleSetFilters: (filt: HandleFilterArgsType) => void;
 }) {
   const classes = useStyles();
   const { song } = props;
@@ -67,6 +72,7 @@ export default function SongCard(props: {
             />
 
             <Tags
+              handleSetFilters={props.handleSetFilters}
               tags={[
                 {
                   attribute: ATTRIBUTE.GENRE,

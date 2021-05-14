@@ -5,10 +5,10 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 import "./App.scss";
 
-import { getAllSongs } from "./utils/graphql/gqlQueries";
-import { client } from "./utils/graphql/apolloClient";
+import { getAllSongs } from "./utils/graphql/GQLQueries";
 import { SongType } from "./models/SongType";
 import { ERROR_MESSAGES } from "./models/ErrorType";
+import { client } from "./utils/graphql/ApolloClient";
 
 import HomePage from "./pages/HomePage/HomePage";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";

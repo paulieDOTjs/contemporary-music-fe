@@ -109,6 +109,7 @@ export default function CatalogPage(props: {
           props.songs.filter(handleFilter).map((song) => {
             return (
               <SongCard
+                handleSetFilters={handleSetFilters}
                 key={song.title + "card"}
                 filters={filters}
                 song={song}

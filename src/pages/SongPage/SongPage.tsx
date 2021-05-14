@@ -7,7 +7,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardActions from "@material-ui/core/CardActions";
 import Button from "@material-ui/core/Button";
 
-import AttributeList from "../../components/SongCard/AttributeList";
+import AttributeList from "../../components/SongCard/SubComponents/AttributeList";
 import dummy from "../../media/dummy.jpg";
 import { ATTRIBUTE } from "../../models/ATTRIBUTE";
 import { SongType } from "../../models/SongType";

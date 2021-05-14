@@ -3,9 +3,9 @@ import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-import { ATTRIBUTE } from "../../models/ATTRIBUTE";
-import AttributeIcon from "../AttributeIcon";
-import { FILTER_KEYS, HandleFilterArgsType } from "../../models/FilterType";
+import { ATTRIBUTE } from "../../../models/ATTRIBUTE";
+import AttributeIcon from "../../AttributeIcon";
+import { getFilterKey, HandleFilterArgsType } from "../../../models/FilterType";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -22,17 +22,6 @@ export default function SimpleSelect(props: {
   handleSetFilters: (filt: HandleFilterArgsType) => void;
 }) {
   const classes = useStyles();
-
-  const getFilterKey = (attr: ATTRIBUTE): FILTER_KEYS => {
-    switch (attr) {
-      case ATTRIBUTE.GENRE:
-        return FILTER_KEYS.GENRE;
-      case ATTRIBUTE.DEGREE_OF_DIFFICULTY:
-        return FILTER_KEYS.DIFFICULTY;
-      default:
-        return FILTER_KEYS.DECADE;
-    }
-  };
 
   return (
     <>

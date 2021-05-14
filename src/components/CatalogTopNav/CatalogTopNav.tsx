@@ -7,12 +7,12 @@ import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import MoreIcon from "@material-ui/icons/MoreVert";
 
-import Picker from "./Picker";
+import Picker from "./SubComponents/Picker";
 import { ATTRIBUTE } from "../../models/ATTRIBUTE";
 import { SongType } from "../../models/SongType";
-import MobileMenu from "./MobileMenu";
+import MobileMenu from "./SubComponents/MobileMenu";
 import { useStyles } from "./NavStyles";
-import BPMSlider from "./BPMSlider";
+import BPMSlider from "./SubComponents/BPMSlider";
 
 import "./CatalogTopNav.scss";
 import { FILTER_KEYS, HandleFilterArgsType } from "../../models/FilterType";

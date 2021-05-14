@@ -3,8 +3,9 @@ import Chip from "@material-ui/core/Chip";
 
 import "./tags.scss";
 
-import { ATTRIBUTE } from "../../models/ATTRIBUTE";
-import AttributeIcon from "../AttributeIcon";
+import { ATTRIBUTE } from "../../../models/ATTRIBUTE";
+import AttributeIcon from "../../AttributeIcon";
+import { getFilterKey, HandleFilterArgsType } from "../../../models/FilterType";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,6 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function Tags(props: {
+  handleSetFilters: (filt: HandleFilterArgsType) => void;
   tags: {
     attribute: Exclude<ATTRIBUTE, "MADE_FAMOUS_BY">;
     data: string | undefined | number;
@@ -35,7 +37,16 @@ export default function Tags(props: {
         : props.tags
             .filter((tag) => tag.data)
             .map((tag) => (
-              <div key={"wrapper" + tag.data} className={classes.root}>
+              <div
+                key={"wrapper" + tag.data}
+                className={classes.root}
+                onClick={() =>
+                  props.handleSetFilters([
+                    getFilterKey(tag.attribute),
+                    tag.activated ? "" : (tag.data as string),
+                  ])
+                }
+              >
                 <Chip
                   key={"chip" + tag.data}
                   avatar={<AttributeIcon attribute={tag.attribute} />}

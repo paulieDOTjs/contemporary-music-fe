@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
+import { ATTRIBUTE } from "./ATTRIBUTE";
 
 export type SetErrorMessageType = Dispatch<SetStateAction<FilterType>>;
 
@@ -16,6 +17,17 @@ export enum FILTER_KEYS {
   DECADE = "decade",
   DIFFICULTY = "degreeOfDifficulty",
 }
+
+export const getFilterKey = (attr: ATTRIBUTE): FILTER_KEYS => {
+  switch (attr) {
+    case ATTRIBUTE.GENRE:
+      return FILTER_KEYS.GENRE;
+    case ATTRIBUTE.DEGREE_OF_DIFFICULTY:
+      return FILTER_KEYS.DIFFICULTY;
+    default:
+      return FILTER_KEYS.DECADE;
+  }
+};
 
 export type HandleFilterArgsType =
   | [FILTER_KEYS, string]
