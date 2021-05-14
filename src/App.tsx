@@ -8,7 +8,7 @@ import "./App.scss";
 import { getAllSongs } from "./utils/graphql/GQLQueries";
 import { SongType } from "./models/SongType";
 import { ERROR_MESSAGES } from "./models/ErrorType";
-import { client } from "./utils/graphql/ApolloClient";
+import { client } from "./utils/graphql/Client";
 
 import HomePage from "./pages/HomePage/HomePage";
 import CatalogPage from "./pages/CatalogPage/CatalogPage";
