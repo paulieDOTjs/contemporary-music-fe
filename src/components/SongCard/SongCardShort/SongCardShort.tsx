@@ -10,7 +10,6 @@ import { Link } from "react-router-dom";
 import { SongType } from "../../../models/SongType";
 import { ATTRIBUTE } from "../../../models/ATTRIBUTE";
 import dummy from "../../../media/dummy.jpg";
-import AttributeList from "../SubComponents/AttributeList";
 
 import Tags from "../SubComponents/tags";
 import "./SongCardShort.scss";
@@ -59,18 +58,6 @@ export default function SongCard(props: {
             title={song.title ?? ""}
           />
           <CardContent>
-            <AttributeList
-              items={[
-                { attribute: ATTRIBUTE.GENRE, data: song.genre },
-                {
-                  attribute: ATTRIBUTE.DEGREE_OF_DIFFICULTY,
-                  data: song.degreeOfDifficulty,
-                },
-                { attribute: ATTRIBUTE.TEMPO, data: song.tempo },
-                { attribute: ATTRIBUTE.DECADE, data: song.decade },
-              ]}
-            />
-
             <Tags
               handleSetFilters={props.handleSetFilters}
               tags={[
